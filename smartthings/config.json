@@ -15,6 +15,7 @@
         "command_suffix": "cmd",
         "login": "",
         "password": "",
+        "retain": "true",
         "bridge_port": 8080
 
     },
@@ -26,6 +27,7 @@
         "command_suffix": "str",
         "login": "str",
         "password": "str",
+        "retain": "str",
         "bridge_port": "int"
     }
 }
