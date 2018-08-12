@@ -2,6 +2,8 @@
 This add-on will install the latest version of the SmartThings MQTT Bridge by StJohnJohnson.
 More details [here](https://github.com/stjohnjohnson/smartthings-mqtt-bridge).
 
+Credit also goes to vkorn and adamfeldman for their original and modified implementations of the add-on.
+
 ## Configuration Paramters Explained
 
 | Param          | Description              |
