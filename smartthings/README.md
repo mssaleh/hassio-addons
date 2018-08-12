@@ -19,4 +19,4 @@ More details [here](https://github.com/stjohnjohnson/smartthings-mqtt-bridge).
 
 Use the MAC address of your physical device in the Device Handler configuration.  You can find this address most easily by logging in and viewing the client list of your network router.
 
-If you are having troubles for any reason with one-way communication, where SmartThings reports states properly, but you cannot control SmartThings devices from Home Assistant or MQTT directly, you absolutely MUST edit and save the Smart App you created.  Doing so, forces the bridge to re-subscribe to the MQTT topics so that it can receive payloads being published to it.
+If you are having troubles for any reason with one-way communication, where SmartThings reports states properly, but you cannot control SmartThings devices from Home Assistant or MQTT directly, you absolutely MUST edit and save the Smart App you created.  Doing so, forces the bridge to re-subscribe to the MQTT topics so that it can receive payloads being published.
