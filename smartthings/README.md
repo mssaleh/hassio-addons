@@ -15,7 +15,7 @@ Credit also goes to vkorn and adamfeldman for their original and modified implem
 | preface        | Preface for topics       |
 | state_suffix   | State topics suffix      |
 | command_suffix | Command topics suffix    |
-| retain         | Retain state changes     |
+| retain_state   | Retain state changes     |
 | bridge_port    | Port bridge listening on |
 
 ### Configuring the Bridge in the SmartThings Groovy IDE
