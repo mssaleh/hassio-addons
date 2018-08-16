@@ -13,7 +13,7 @@
         "preface": "smartthings",
         "state_suffix": "state",
         "command_suffix": "cmd",
-        "login": "",
+        "username": "",
         "password": "",
         "retain_state": true,
         "bridge_port": 8080
@@ -25,7 +25,7 @@
         "preface": "str",
         "state_suffix": "str",
         "command_suffix": "str",
-        "login": "str",
+        "username": "str",
         "password": "str",
         "retain_state": "bool",
         "bridge_port": "int"
