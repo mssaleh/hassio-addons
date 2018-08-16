@@ -10,7 +10,7 @@ Credit also goes to vkorn and adamfeldman for their original and modified implem
 |----------------|--------------------------|
 | broker_host    | MQTT broker host         |
 | broker_port    | MQTT broker port         |
-| login          | MQTT broker login        |
+| username       | MQTT broker username     |
 | password       | MQTT broker password     |
 | preface        | Preface for topics       |
 | state_suffix   | State topics suffix      |
