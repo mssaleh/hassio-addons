@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Parse command line parameters
+while [[ $# -gt 0 ]]; do
+    arg="$1"
+
+    case $arg in
+        -p|--password)
+            PSWD=$2
+            shift
+            ;;
+        *)
+            echo "[Error] Unrecognized option $1"
+            exit 1
+            ;;
+    esac
+    shift
+done
+
 echo "Please answer with Y or Yes to any prompts you may get."
 
 apt update && sudo apt upgrade -y
@@ -16,4 +33,4 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(
 apt update && sudo apt install docker-ce -y
 usermod -aG docker ubuntu
 apt-get clean && sudo apt autoremove --purge && sudo apt-get autoclean
-docker run -d -p 80:8388 -p 80:8388/udp --restart="unless-stopped" -e TIMEOUT=600 -e METHOD="aes-256-cfb" -e PASSWORD=YOUR_PASSWORD -e ARGS="--reuse-port" shadowsocks/shadowsocks-libev
+docker run -d -p 80:8388 -p 80:8388/udp --restart="unless-stopped" -e TIMEOUT=600 -e METHOD="aes-256-cfb" -e PASSWORD=$PSWD -e ARGS="--reuse-port" shadowsocks/shadowsocks-libev
