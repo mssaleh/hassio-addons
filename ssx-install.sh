@@ -70,7 +70,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=$MACHINE] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 apt update && sudo apt install docker-ce -y
 usermod -aG docker ubuntu
-# apt-get clean && sudo apt autoremove --purge && sudo apt-get autoclean
+apt-get clean && sudo apt autoremove --purge -y && sudo apt-get autoclean
 docker run -d -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e METHOD="aes-256-cfb" -e PASSWORD=$PSWD -e ARGS="--reuse-port" shadowsocks/shadowsocks-libev:latest
 
 echo "==========================================================================="
