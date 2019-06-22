@@ -74,6 +74,18 @@ add-apt-repository "deb [arch=$MACHINE] https://download.docker.com/linux/ubuntu
 apt update && sudo apt install docker-ce -y
 usermod -aG docker ubuntu
 apt-get clean && sudo apt autoremove --purge -y && sudo apt-get autoclean
+
+# Check DNS settings
+DOCKER_VERSION="$(docker --version | grep -Po "\d{2}\.\d{2}\.\d")"
+if version_gt "18.09.0" "${DOCKER_VERSION}" && [ ! -e "$PREFIX/etc/docker/daemon.json" ]; then
+    echo "[Warning] Create DNS settings for Docker to avoid systemd bug!"
+    mkdir -p $PREFIX/etc/docker
+    echo '{"dns": ["1.1.1.1", "8.8.8.8"]}' > $PREFIX/etc/docker/daemon.json
+
+    echo "[Info] Restart Docker and wait 20 seconds"
+    systemctl restart $DOCKER_SERVICE && sleep 20
+fi
+
 docker run -d -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e METHOD="aes-256-cfb" -e PASSWORD=$PSWD -e ARGS="--reuse-port" shadowsocks/shadowsocks-libev:latest
 
 echo "=================================================================="
