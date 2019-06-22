@@ -90,7 +90,7 @@ docker run -d -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e METH
 
 echo "=================================================================="
 echo "Deployment completed. Please verify the result manually by trying "
-echo" to connect to the proxy using a Shadowsocks client."
+echo "to connect to the proxy using a Shadowsocks client."
 echo "=================================================================="
 echo "Server will now reboot!"
 echo "=================================================================="
