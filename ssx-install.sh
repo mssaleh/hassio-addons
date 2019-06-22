@@ -48,13 +48,16 @@ if [ -z $PSWD ]; then
 fi
 
 
-echo "Welcome to this convenience script by Mohammed Saleh"
-echo "===================================================="
-echo "This script is specifically made for 64-bit Ubuntu/Debian Linux on intel/AMD systems."
-echo "It is not suitable for ARM systems such as Raspberry Pi."
-echo "The purpose of this script is to deploy a Shadowsocks proxy server, usually on a VPS such as Amazon Lightsail or DigitalOcean."
-echo "Please make sure to open the same port you choose for this server on both TCP and UDP protocols (from your instance/droplet/firewall settings), and also set an external STATIC IP for the server."
-echo "========================================================================="
+echo "  Welcome to this convenience script by Mohammed Saleh  "
+echo "========================================================"
+echo "This script is specifically made for Ubuntu/Debian Linux"
+echo "The purpose of this script is to deploy a Shadowsocks proxy"
+echo "server, usually on a VPS such as Amazon Lightsail or DigitalOcean."
+echo "=================================================================="
+echo "Please make sure to open the same port you choose for this server "
+echo "on both TCP and UDP protocols (instance/droplet/firewall settings)"
+echo "and also set an external STATIC IP for the server."
+echo "=================================================================="
 sleep 10
 
 apt update && sudo apt upgrade -y
@@ -73,8 +76,11 @@ usermod -aG docker ubuntu
 apt-get clean && sudo apt autoremove --purge -y && sudo apt-get autoclean
 docker run -d -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e METHOD="aes-256-cfb" -e PASSWORD=$PSWD -e ARGS="--reuse-port" shadowsocks/shadowsocks-libev:latest
 
-echo "==========================================================================="
-echo "Deployment completed. Please verify the result manually by trying to connect to the proxy using a Shadowsocks client."
+echo "=================================================================="
+echo "Deployment completed. Please verify the result manually by trying "
+echo" to connect to the proxy using a Shadowsocks client."
+echo "=================================================================="
 echo "Server will now reboot!"
+echo "=================================================================="
 sleep 10
 reboot
