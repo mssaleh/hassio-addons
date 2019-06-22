@@ -33,6 +33,7 @@ case $ARCH in
     ;;
     "aarch64")
         MACHINE=arm64
+    ;;
     *)
         echo "[Error] $ARCH not supported!"
         exit 1
