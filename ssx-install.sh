@@ -31,7 +31,7 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(
 apt update && sudo apt install docker-ce -y
 usermod -aG docker ubuntu
 apt-get clean && sudo apt autoremove --purge && sudo apt-get autoclean
-docker run -d -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e TIMEOUT=600 -e METHOD="aes-256-cfb" -e PASSWORD=$PSWD -e ARGS="--reuse-port" shadowsocks/shadowsocks-libev
+docker run -d -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e METHOD="aes-256-cfb" -e PASSWORD=$PSWD -e ARGS="--reuse-port" shadowsocks/shadowsocks-libev
 
 echo "==========================================================================="
 echo "Deployment completed. Please verify the result manually by trying to connect to the proxy using a Shadowsocks client."
