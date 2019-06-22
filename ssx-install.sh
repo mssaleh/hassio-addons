@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+
 ARCH=$(uname -m)
 
 # Parse command line parameters
