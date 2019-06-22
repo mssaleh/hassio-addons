@@ -86,7 +86,7 @@ if version_gt "18.09.0" "${DOCKER_VERSION}" && [ ! -e "$PREFIX/etc/docker/daemon
     systemctl restart $DOCKER_SERVICE && sleep 20
 fi
 
-docker run -d -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e METHOD="aes-256-cfb" -e PASSWORD=$PSWD -e ARGS="--reuse-port" -e DNS_ADDRS="8.8.8.8,1.1.1.1" shadowsocks/shadowsocks-libev:latest
+docker run -d --dns="8.8.8.8" --dns="1.1.1.1" -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e DNS_ADDRS="8.8.8.8,1.1.1.1" -e TIMEOUT=600 -e METHOD="aes-256-cfb" -e PASSWORD=$PSWD -e ARGS="--reuse-port --mtu 1492" shadowsocks/shadowsocks-libev:latest
 
 echo "=================================================================="
 echo "Deployment completed. Please verify the result manually by trying "
