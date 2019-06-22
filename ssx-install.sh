@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 echo "Welcome to this convenience script by Mohammed Saleh"
 echo "===================================================="
@@ -8,14 +9,14 @@ echo "The purpose of this script is to deploy a Shadowsocks proxy server, usuall
 echo "Please make sure to open the same port you choose for this server on both TCP and UDP protocols (from your instance/droplet/firewall settings), and also set an external STATIC IP for the server."
 echo "========================================================================="
 echo "Please choose a Port number for the proxy server (e.g. 80 or 8388, etc.)"
-read -p 'Proxy Port: ' PORT
+read -p "Proxy Port: " PORT
 echo "Please choose a Password for the proxy server (e.g. 80 or 8388, etc.)"
-read -p 'Proxy Port: ' PSWD
+read -p "Proxy Port: " PSWD
 echo "==========================================================================="
 echo "Now you are ready to go!"
 echo "Please answer with Y or Yes to any prompts you may get during this process!"
 echo "==========================================================================="
-read -n 1 -s -r -p "Press any key to continue"
+read -p "Press enter to continue"
 
 apt update && sudo apt upgrade -y
 # apt remove --purge *4.15.0-1021* *4.15.0-1040* *lxd*
@@ -35,5 +36,5 @@ docker run -d -p $PORT:8388 -p $PORT:8388/udp --restart="unless-stopped" -e METH
 
 echo "==========================================================================="
 echo "Deployment completed. Please verify the result manually by trying to connect to the proxy using a Shadowsocks client."
-read -n 1 -s -r -p "You server will now reboot. Press any key to continue"
+read -p "Press enter to continue"
 reboot
