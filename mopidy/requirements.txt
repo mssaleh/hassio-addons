@@ -1,0 +1,2 @@
+Mopidy-MusicBox-Webclient==3.0.1
+Mopidy-GMusic==4.0.0
