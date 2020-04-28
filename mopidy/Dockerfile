@@ -1,4 +1,4 @@
-ARG BUILD_FROM=hassioaddons/debian-base:3.0.1
+ARG BUILD_FROM=hassioaddons/debian-base:3.1.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -13,13 +13,13 @@ RUN \
     apt-get update \
     \
     && apt-get install -y --no-install-recommends \
-        dirmngr=2.2.12-1+deb10u1 \
-        gpg-agent=2.2.12-1+deb10u1 \
-        gpg=2.2.12-1+deb10u1 \
-        libnginx-mod-http-lua=1.14.2-2+deb10u1 \
-        luarocks=2.4.2+dfsg-1 \
-        nginx=1.14.2-2+deb10u1 \
-        git=1:2.20.1-2+deb10u1 \
+        dirmngr \
+        gpg-agent \
+        gpg \
+        libnginx-mod-http-lua \
+        luarocks \
+        nginx \
+        git \
     \
     && curl -L https://apt.mopidy.com/mopidy.gpg | apt-key add - \
     && curl -L https://apt.mopidy.com/mopidy.list -o /etc/apt/sources.list.d/mopidy.list \
@@ -27,22 +27,22 @@ RUN \
     && apt-get update \
     \
     && apt-get install -y --no-install-recommends \
-        libffi-dev=3.2.1-9 \
-        libxml2-dev=2.9.4+dfsg1-7+b3 \
-        libxslt1-dev=1.1.32-2.2~deb10u1 \
-        libasound2-dev=1.1.8-1 \
-        libspotify12=12.1.51-1 \
-        libspotify-dev=12.1.51-1 \
-        zlib1g-dev=1:1.2.11.dfsg-1 \
-        build-essential=12.6 \
-        python3-dev=3.7.3-1 \
-        python3-gi=3.30.4-1 \
-        python3-gst-1.0=1.14.4-1+b1 \
-        gstreamer1.0-alsa=1.14.4-2 \
-        gstreamer1.0-plugins-bad=1.14.4-1+b1 \
-        gstreamer1.0-plugins-good=1.14.4-1 \
-        gstreamer1.0-plugins-ugly=1.14.4-1 \
-        gstreamer1.0-pulseaudio=1.14.4-1 \
+        libffi-dev \
+        libxml2-dev \
+        libxslt1-dev \
+        libasound2-dev \
+        libspotify12 \
+        libspotify-dev \
+        zlib1g-dev \
+        build-essential \
+        python3-dev \
+        python3-gi \
+        python3-gst-1.0 \
+        gstreamer1.0-alsa \
+        gstreamer1.0-plugins-bad \
+        gstreamer1.0-plugins-good \
+        gstreamer1.0-plugins-ugly \
+        gstreamer1.0-pulseaudio \
     \
     && luarocks install lua-resty-http 0.15-0 \
     \
