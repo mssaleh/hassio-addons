@@ -1,8 +1,8 @@
 {
   "build_from": {
-    "amd64": "hassioaddons/debian-base-amd64:3.0.1",
-    "armhf": "hassioaddons/debian-base-armhf:3.0.1",
-    "armv7": "hassioaddons/debian-base-armv7:3.0.1"
+    "amd64": "hassioaddons/debian-base-amd64:latest",
+    "armhf": "hassioaddons/debian-base-armhf:latest",
+    "armv7": "hassioaddons/debian-base-armv7:latest"
   },
   "args": {}
 }
