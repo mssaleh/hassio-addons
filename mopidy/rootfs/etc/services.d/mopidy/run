@@ -17,3 +17,4 @@ done
 
 # Run Mopidy
 exec mopidy --config /etc/mopidy/mopidy.conf "${options[@]}"
+exec mopidy local scan
