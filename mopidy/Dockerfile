@@ -48,6 +48,7 @@ RUN \
     \
     && curl https://bootstrap.pypa.io/get-pip.py | python3 \
     && pip3 install --no-cache-dir -r /tmp/requirements.txt \
+    && sh -c 'echo "mopidy ALL=NOPASSWD: /usr/local/lib/python3.7/dist-packages/mopidy_iris/system.sh" >> /etc/sudoers' \
     \
     && find /usr/local/lib/python3.7/ -type d -name tests -depth -exec rm -rf {} \; \
     && find /usr/local/lib/python3.7/ -type d -name test -depth -exec rm -rf {} \; \
