@@ -16,5 +16,4 @@ for var in $(bashio::config 'settings|keys'); do
 done
 
 # Run Mopidy
-exec mopidy --config /etc/mopidy/mopidy.conf "${options[@]}"
-exec mopidy local scan
+exec mopidy --config /etc/mopidy/mopidy.conf "${options[@]}" && mopidy local scan
